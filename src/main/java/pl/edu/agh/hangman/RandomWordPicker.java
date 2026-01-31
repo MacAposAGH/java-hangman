@@ -2,15 +2,15 @@ package pl.edu.agh.hangman;
 
 import java.util.List;
 import java.util.Random;
+import java.util.function.Predicate;
 
 public class RandomWordPicker {
     private static final Random RANDOM = new Random();
 
-    public static String chooseRandomWord(List<String> words, int wordLength) throws IllegalArgumentException {
-        String randomWord = "";
-        while (randomWord.length() != wordLength) {
-            words.get(RANDOM.nextInt(words.size()));
-        }
-        return randomWord;
+    public static String chooseRandomWord(List<String> words, Predicate<String> filter) {
+        return words.stream()
+                .filter(filter)
+                .findAny()
+                .orElseThrow(() -> new IllegalArgumentException("Nie znaleziono słowa"));
     }
 }
