@@ -55,5 +55,9 @@ public class Hangman {
     };
 
     public static void main(String[] args) {
+        HangmanUI hangmanUI = new HangmanUI();
+
+        hangmanUI.Welcome();
+        hangmanUI.NextLetter();
     }
 }
