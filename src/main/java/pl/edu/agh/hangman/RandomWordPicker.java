@@ -11,7 +11,6 @@ public class RandomWordPicker {
         while (randomWord.length() != wordLength) {
             words.get(RANDOM.nextInt(words.size()));
         }
-
         return randomWord;
     }
 }
